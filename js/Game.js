@@ -15,5 +15,12 @@ class Game {
                          new Player(2, "Player 2", "#e59a13")];
         return players;
     }
+
+    /*
+     * Gets game ready for play
+    */
+    startGame () {
+
+    }
     
 }
