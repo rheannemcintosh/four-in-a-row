@@ -5,8 +5,8 @@ class Token {
         this.played = false;
     }
 
-    htmlToken () {
-
+    get htmlToken () {
+        return document.getElementById(this.id);
     }
 
     drawHTMLToken () {
