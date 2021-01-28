@@ -1,10 +1,16 @@
+/**
+ * Class for the Player of Four in a Row
+ */
 class Player {
     
-    constructor(playerID, username, colour, myTurn = false) {
+    /**
+     * Constructor for the Player Class
+     */
+    constructor(playerID, username, colour, active = false) {
         this.playerID = playerID;
         this.username = username;
         this.colour   = colour;
-        this.myTurn   = myTurn;
+        this.active   = active;
         this.tokens   = this.createTokens(21);
     }
 
@@ -15,13 +21,17 @@ class Player {
     */
     createTokens(num){
         const tokens = [];
+    
         if (num >= 1) {
+    
             for (let i = 1; i <= num; i++) {
                 let token = new Token(i, this);
                 tokens.push(token);
             }
         }
+        
         return tokens;
+    }
 
     /**
      * Gets all tokens that haven't been dropped.

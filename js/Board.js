@@ -1,5 +1,11 @@
+/**
+ * Class for the Board of Four in a Row
+ */
 class Board {
     
+    /**
+     * Constructor for the Board Class
+     */
     constructor () {
         this.numRows    = 6;
         this.numColumns = 7;
@@ -8,7 +14,7 @@ class Board {
 
     /** 
      * Generates 2D array of spaces. 
-     * @return  {Array}     An array of space objects
+     * @return  {array}     An array of space objects
     */
     createSpaces () {
         const spaces = [];
@@ -20,12 +26,14 @@ class Board {
                 const space = new Space(x,y);
                 column.push(space);
             }
-
             spaces.push(column);
         }
         return spaces;
     }
 
+    /** 
+     * Draws associated SVG spaces for all game spaces.
+     */
     drawHTMLBoard () {
         for (let column of this.spaces) {
             for (let space of column) {
