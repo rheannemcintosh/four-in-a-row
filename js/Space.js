@@ -1,5 +1,11 @@
+/**
+ * Class for the Space of Four in a Row
+ */
 class Space {
 
+    /**
+     * Constructor for the Space Class
+     */
     constructor (x, y) {
         this.x = x;
         this.y = y;
@@ -9,6 +15,9 @@ class Space {
         this.token = null;
     }
 
+    /** 
+     * Draws associated SVG spaces for all game spaces.
+     */
     drawSVGSpace () {
         
         // Create the SVG Element

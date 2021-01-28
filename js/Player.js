@@ -1,6 +1,12 @@
+/**
+ * Class for the Player of Four in a Row
+ */
 class Player {
     
     constructor(playerID, username, colour, myTurn = false) {
+    /**
+     * Constructor for the Player Class
+     */
         this.playerID = playerID;
         this.username = username;
         this.colour   = colour;
