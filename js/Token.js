@@ -2,14 +2,14 @@
  * Class for the Token of Four in a Row
  */
 class Token {
-    constructor(player, index) {
 
     /**
      * Constructor for the Token Class
      */
+    constructor(index, player) {
         this.player  = player;
         this.tokenID = `token-${index}-${player.id}`;
-        this.played = false;
+        this.dropped = false;
     }
 
     /**
@@ -27,6 +27,6 @@ class Token {
         document.getElementById('game-board-underlay').appendChild(token);
         token.setAttribute('id', this.id);
         token.setAttribute('class', 'token');
-        token.style.backgroundColor = this.owner.color;
+        token.style.backgroundColor = this.player.colour;
     }
 }
