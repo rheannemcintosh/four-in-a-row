@@ -26,7 +26,6 @@ class Board {
                 const space = new Space(x,y);
                 column.push(space);
             }
-
             spaces.push(column);
         }
         return spaces;

@@ -7,19 +7,18 @@ class Space {
      * Constructor for the Space Class
      */
     constructor (x, y) {
-        this.x = x;
-        this.y = y;
+        this.x        = x;
+        this.y        = y;
         this.diameter = 76;
-        this.radius = this.diameter / 2;
-        this.id = `space-${x}-${y}`;
-        this.token = null;
+        this.radius   = this.diameter / 2;
+        this.id       = `space-${x}-${y}`;
+        this.token    = null;
     }
 
     /** 
      * Draws associated SVG spaces for all game spaces.
      */
     drawSVGSpace () {
-        
         // Create the SVG Element
         const svgSpace = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         
@@ -34,5 +33,4 @@ class Space {
         //Attach the Element to the DOM
         document.getElementById("mask").appendChild(svgSpace);   
     }
-    
 }

@@ -21,13 +21,17 @@ class Player {
     */
     createTokens(num){
         const tokens = [];
+    
         if (num >= 1) {
+    
             for (let i = 1; i <= num; i++) {
                 let token = new Token(i, this);
                 tokens.push(token);
             }
         }
+        
         return tokens;
+    }
 
     /**
      * Gets all tokens that haven't been dropped.
