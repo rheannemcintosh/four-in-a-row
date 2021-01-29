@@ -20,6 +20,14 @@ class Token {
         return document.getElementById(this.id);
     }
 
+    /** 
+     * Gets left offset of html element.
+     * @return  {number}   Left offset of token object's htmlToken.
+     */
+    get offsetLeft () {
+        return this.htmlToken.offsetLeft;
+    }
+
     /**
      * Draw the HTML Token
      */
