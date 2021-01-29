@@ -40,4 +40,24 @@ class Game {
         this.activePlayer.activeToken.drawHTMLToken();
         this.ready = true;
     }
+
+    playToken () {
+        let spaces = this.board.spaces;
+        let activeToken = this.activePlayer.activeToken;
+        let targetColumn = spaces[activeToken.columnLocation];
+        let targetSpace = null;
+
+        for (let space of targetColumn) {
+            if (space.token === null) {
+                targetSpace = space;
+                console.log(targetSpace);
+            }
+        }
+        
+        if (targetSpace !== null) {
+            console.log(targetSpace);
+            game.ready = false;
+            activeToken.drop(targetSpace);
+        }
+    }
 }
