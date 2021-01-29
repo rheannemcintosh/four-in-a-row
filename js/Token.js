@@ -7,9 +7,10 @@ class Token {
      * Constructor for the Token Class
      */
     constructor(index, player) {
-        this.player  = player;
-        this.tokenID = `token-${index}-${player.id}`;
-        this.dropped = false;
+        this.player         = player;
+        this.tokenID        = `token-${index}-${player.id}`;
+        this.dropped        = false;
+        this.columnLocation = 0;
     }
 
     /**
