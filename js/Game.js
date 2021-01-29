@@ -40,4 +40,42 @@ class Game {
         this.activePlayer.activeToken.drawHTMLToken();
         this.ready = true;
     }
+
+    playToken () {
+        let spaces = this.board.spaces;
+        let activeToken = this.activePlayer.activeToken;
+        let targetColumn = spaces[activeToken.columnLocation];
+        let targetSpace = null;
+
+        for (let space of targetColumn) {
+            if (space.token === null) {
+                targetSpace = space;
+                console.log(targetSpace);
+            }
+        }
+        
+        if (targetSpace !== null) {
+            console.log(targetSpace);
+            game.ready = false;
+            activeToken.drop(targetSpace);
+        }
+    }
+
+    /**
+     * Branches code, depending on what key player presses
+     * @param   {Object}    e - Keydown event object
+    */
+    handleKeydown (e) {
+        if (this.ready) {
+            if (e.key === "ArrowLeft") {
+                this.activePlayer.activeToken.moveLeft();
+            } else if (e.key === "ArrowRight") {
+                this.activePlayer.activeToken.moveRight(this.board.numColumns);
+            } else if (e.key === "ArrowDown") {
+                this.playToken();
+            }
+        }
+    }
+
+    
 }
