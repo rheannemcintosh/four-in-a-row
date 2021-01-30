@@ -56,7 +56,9 @@ class Game {
         if (targetSpace !== null) {
             console.log(targetSpace);
             game.ready = false;
-            activeToken.drop(targetSpace);
+            activeToken.drop(targetSpace, function() {
+                game.updateGameState(activeToken, targetSpace);
+            });
         }
     }
 
@@ -154,4 +156,25 @@ class Game {
         document.getElementById('game-over').textContent = message;
     }
     
+    /** 
+     * Updates game state after token is dropped. 
+     * @param   {Object}  token  -  The token that's being dropped.
+     * @param   {Object}  target -  Targeted space for dropped token.
+     */
+    updateGameState (token, target) {
+        target.mark(token);
+
+        if (!this.checkForWin(target)) {
+            this.switchPlayers();
+
+            if (this.activePlayer.checkTokens()) {
+                this.activePlayer.activeToken.drawHTMLToken();
+                this.ready = true;
+            } else {
+                this.gameOver('No more tokens');
+            }
+        } else {
+            this.gameOver(`${target.owner.naem} wins!`);
+        }
+    }
 }
